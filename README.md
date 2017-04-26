@@ -1,6 +1,8 @@
 # Collection.sort
 
-  Collections.sort(persons, (firstPerson, secondPerson) -> {
+
+
+          Collections.sort(persons, (firstPerson, secondPerson) -> {
 	        int sComp = firstPerson.getFirstName().compareTo(secondPerson.getFirstName());
 
 	        if (sComp != 0) {
