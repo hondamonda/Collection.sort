@@ -1,0 +1,76 @@
+# Collection.sort
+1.	Sort Persons by Name and Age
+
+package zad;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+public class Zad {
+	
+	
+	public static void main(String[] args) throws IOException {
+	    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	    int n = Integer.parseInt(br.readLine());
+
+	    List<Person> persons = new ArrayList<>();
+
+	    for (int i = 0; i < n; i++) {
+	        String[] input = br.readLine().split(" ");
+	        persons.add(new Person(input[0], input[1], Integer.parseInt(input[2])));
+	    }
+
+	    Collections.sort(persons, (firstPerson, secondPerson) -> {
+	        int sComp = firstPerson.getFirstName().compareTo(secondPerson.getFirstName());
+
+	        if (sComp != 0) {
+	            return sComp;
+	        } else {
+	            return firstPerson.getAge().compareTo(secondPerson.getAge());
+	        }
+	    });
+
+	    for (Person person : persons) {
+	        System.out.println(person.toString());
+	    }
+	}
+}
+
+
+----------------------------------------------------------------------------------------
+
+package zad;
+
+public class Person {
+
+	private String firstName;
+	private String lastName;
+	private Integer age;
+	
+	public Person(String firstName, String lastName, int age) {
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.age = age;
+	}
+	public String getFirstName() {
+		return firstName;
+	}
+	public String getLastName() {
+		return lastName;
+	}
+	public Integer getAge() {
+		return age;
+	}
+	public String toString() {
+		return this.firstName + " " + this.lastName + " is a " + this.age + " years old.";
+	}
+	
+	
+}
+
+
+=======================================================================================================
