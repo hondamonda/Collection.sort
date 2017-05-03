@@ -29,6 +29,10 @@ public class Zad {
 
 	        if (sComp != 0) {
 	            return sComp;
+		} else {
+ 		    int sCompLastName = firstPerson.getLastName().compareTo(secondPerson.getLastName());
+		    if (sCompLastName != 0) {
+			return sCompLastName;
 	        } else {
 	            return firstPerson.getAge().compareTo(secondPerson.getAge());
 	        }
